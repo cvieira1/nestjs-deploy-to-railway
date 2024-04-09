@@ -6,6 +6,11 @@ import { Song } from "src/songs/song.entity";
 import { User } from "src/users/user.entity";
 import { DataSource, DataSourceOptions } from "typeorm";
 
+const path = require("path")
+const envPath = path.resolve(__dirname, `../../.env.${process.env.NODE_ENV}`)
+
+require("dotenv").config({ path: envPath })
+
 export const dataSourceOptions: DataSourceOptions = {
 
     type: "postgres",
